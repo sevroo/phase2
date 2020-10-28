@@ -14,6 +14,12 @@ create domain Price as decimal(10, 2)
 	not null
 	check (value >= 0);
 
+-- owners >= 0
+create domain NumOwners as integer
+  default 0
+  not null
+  check (value >= 0);
+
 -- positiveRatings and negativeRatings >= 0
 create domain Rating as integer
 	default 0
@@ -52,7 +58,7 @@ create table Stat(
 	negativeRatings Rating,
 	averagePlaytime Playtime,
 	medianPlaytime Playtime,
-	owners varchar(40) not null, -- to clean? maybe take midpoint of the string
+	owners NumOwners, -- to clean? maybe take midpoint of the string
 	foreign key (appID) references Game);
 
 create table Genre(
