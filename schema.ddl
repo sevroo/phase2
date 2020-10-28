@@ -43,7 +43,7 @@ create table Game(
 create table Platform(
 	appID integer not null,
 	platform PlatformType,
-	primary key (appID, platform)
+	primary key (appID, platform),
 	foreign key (appID) references Game);
 
 create table Stat(

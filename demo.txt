@@ -1,0 +1,49 @@
+dbsrv1:~$ psql csc343h-leesieu1
+psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1))
+Type "help" for help.
+
+csc343h-leesieu1=> \i schema.ddl 
+psql:schema.ddl:1: NOTICE:  drop cascades to 10 other objects
+DETAIL:  drop cascades to type steam.price
+drop cascades to type steam.rating
+drop cascades to type steam.playtime
+drop cascades to type steam.platformtype
+drop cascades to table steam.game
+drop cascades to table steam.platform
+drop cascades to table steam.stat
+drop cascades to table steam.genre
+drop cascades to table steam.communitytag
+drop cascades to table steam.category
+DROP SCHEMA
+CREATE SCHEMA
+SET
+CREATE DOMAIN
+CREATE DOMAIN
+CREATE DOMAIN
+CREATE DOMAIN
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+csc343h-leesieu1=> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
