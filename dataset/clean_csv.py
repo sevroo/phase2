@@ -37,9 +37,9 @@ communitytag = communitytag.reset_index()[['appid', 0]] # steamspy_tags variable
 communitytag.columns = ['appid', 'steamspy_tags'] # renaming steamspy_tags
 
 # save to csv
-game.to_csv('game.csv')
-platform.to_csv('platform.csv')
-stat.to_csv('stat.csv')
-genre.to_csv('genre.csv')
-communitytag.to_csv('communitytag.csv')
-category.to_csv('category.csv')
+game.to_csv('game.csv', index=False)
+platform.to_csv('platform.csv', index=False)
+stat.to_csv('stat.csv', index=False)
+genre.to_csv('genre.csv', index=False)
+communitytag.to_csv('communitytag.csv', index=False)
+category.to_csv('category.csv', index=False)
