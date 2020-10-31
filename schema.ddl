@@ -46,7 +46,7 @@ create table Game(
 
 create table Developer(
 	appID integer not null,
-	developer varchar(80),
+	developer varchar(100),
 	primary key (appID, developer),
 	foreign key (appID) references Game);
 
