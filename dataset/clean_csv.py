@@ -14,12 +14,24 @@ df['owners'] = midpoint
 df = df.drop(columns=['required_age', 'achievements', 'english'])
 
 # init "relations"
-game = df[['appid', 'name', 'release_date', 'price', 'developer', 'publisher']]
+game = df[['appid', 'name', 'release_date', 'price']]
+developer = df[['appid', 'developer']]
+publisher = df[['appid', 'publisher']]
 platform = df[['appid', 'platforms']]
 stat = df[['appid', 'positive_ratings', 'negative_ratings', 'average_playtime', 'median_playtime', 'owners']]
 genre = df[['appid', 'genres']]
 communitytag = df[['appid', 'steamspy_tags']]
 category = df[['appid', 'categories']]
+
+# split developer
+developer = pd.DataFrame(developer.developer.str.split(';').tolist(), index=developer.appid).stack()
+developer = developer.reset_index()[['appid', 0]] # developer variable is currently labeled 0
+developer.columns = ['appid', 'developer'] # renaming developer
+
+# split publisher
+publisher = pd.DataFrame(publisher.publisher.str.split(';').tolist(), index=publisher.appid).stack()
+publisher = publisher.reset_index()[['appid', 0]] # publisher variable is currently labeled 0
+publisher.columns = ['appid', 'publisher'] # renaming publisher
 
 # split platform
 platform = pd.DataFrame(platform.platforms.str.split(';').tolist(), index=platform.appid).stack()

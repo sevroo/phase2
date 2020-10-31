@@ -40,11 +40,21 @@ create domain PlatformType as varchar(10)
 
 create table Game(
 	appID integer primary key,
-	name varchar(40) not null,
+	name varchar(100) not null,
 	releaseDate date not null, -- to clean? YYYY-MM-DD select convert(varchar, getdate(), 23)
-	price Price,
-	developer varchar(40) not null,
-	publisher varchar(40) not null);
+	price Price);
+
+create table Developer(
+	appID integer not null,
+	developer varchar(50),
+	primary key (appID, developer),
+	foreign key (appID) references Game);
+
+create table Publisher(
+	appID integer not null,
+	publisher varchar(50),
+	primary key (appID, publisher),
+	foreign key (appID) references Game);
 
 create table Platform(
 	appID integer not null,
@@ -63,18 +73,18 @@ create table Stat(
 
 create table Genre(
 	appID integer not null,
-	genre varchar(25) not null,
+	genre varchar(50) not null,
 	primary key (appID, genre),
 	foreign key (appID) references Game);
 
 create table CommunityTag(
 	appID integer not null,
-	steamspyTag varchar(40) not null,
+	steamspyTag varchar(50) not null,
 	primary key (appID, steamspyTag),
 	foreign key (appID) references Game);
 
 create table Category(
 	appID integer not null,
-	category varchar(40) not null,
+	category varchar(50) not null,
 	primary key (appID, category),
 	foreign key (appID) references Game);
