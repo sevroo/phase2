@@ -54,11 +54,11 @@ category = category.reset_index()[['appid', 0]] # categories variable is current
 category.columns = ['appid', 'category'] # renaming categories
 
 # save to csv
-game.to_csv('game.csv', index=False)
-developer.to_csv('developer.csv', index=False)
-publisher.to_csv('publisher.csv', index=False)
-platform.to_csv('platform.csv', index=False)
-stat.to_csv('stat.csv', index=False)
-genre.to_csv('genre.csv', index=False)
-communitytag.to_csv('communitytag.csv', index=False)
-category.to_csv('category.csv', index=False)
+game.drop_duplicates().to_csv('game.csv', index=False)
+developer.drop_duplicates().to_csv('developer.csv', index=False)
+publisher.drop_duplicates().to_csv('publisher.csv', index=False)
+platform.drop_duplicates().to_csv('platform.csv', index=False)
+stat.drop_duplicates().to_csv('stat.csv', index=False)
+genre.drop_duplicates().to_csv('genre.csv', index=False)
+communitytag.drop_duplicates().to_csv('communitytag.csv', index=False)
+category.drop_duplicates().to_csv('category.csv', index=False)
