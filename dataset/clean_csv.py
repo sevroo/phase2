@@ -3,7 +3,7 @@ import pandas as pd
 # read steam csv file
 df = pd.read_csv('steam.csv')
 # limit to games with less than 60 characters
-# df = orig_df[orig_df['name'].map(len) <= 60]
+# df = df[df['name'].map(len) <= 60]
 
 # take midpoint of owners
 owners = df['owners']
