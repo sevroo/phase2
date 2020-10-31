@@ -38,15 +38,20 @@ platform = pd.DataFrame(platform.platforms.str.split(';').tolist(), index=platfo
 platform = platform.reset_index()[['appid', 0]] # platforms variable is currently labeled 0
 platform.columns = ['appid', 'platform'] # renaming platform
 
-# split categories
-category = pd.DataFrame(category.categories.str.split(';').tolist(), index=category.appid).stack()
-category = category.reset_index()[['appid', 0]] # categories variable is currently labeled 0
-category.columns = ['appid', 'category'] # renaming categories
+# split genre
+genre = pd.DataFrame(genre.genres.str.split(';').tolist(), index=genre.appid).stack()
+genre = genre.reset_index()[['appid', 0]] # genres variable is currently labeled 0
+genre.columns = ['appid', 'genre'] # renaming genres
 
 # split communitytag (steamspy_tags)
 communitytag = pd.DataFrame(communitytag.steamspy_tags.str.split(';').tolist(), index=communitytag.appid).stack()
 communitytag = communitytag.reset_index()[['appid', 0]] # steamspy_tags variable is currently labeled 0
 communitytag.columns = ['appid', 'steamspy_tags'] # renaming steamspy_tags
+
+# split categories
+category = pd.DataFrame(category.categories.str.split(';').tolist(), index=category.appid).stack()
+category = category.reset_index()[['appid', 0]] # categories variable is currently labeled 0
+category.columns = ['appid', 'category'] # renaming categories
 
 # save to csv
 game.to_csv('game.csv', index=False)

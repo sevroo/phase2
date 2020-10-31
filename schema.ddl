@@ -40,19 +40,19 @@ create domain PlatformType as varchar(10)
 
 create table Game(
 	appID integer primary key,
-	name varchar(100) not null,
+	name varchar(500) not null,
 	releaseDate date not null, -- to clean? YYYY-MM-DD select convert(varchar, getdate(), 23)
 	price Price);
 
 create table Developer(
 	appID integer not null,
-	developer varchar(50),
+	developer varchar(80),
 	primary key (appID, developer),
 	foreign key (appID) references Game);
 
 create table Publisher(
 	appID integer not null,
-	publisher varchar(50),
+	publisher varchar(80),
 	primary key (appID, publisher),
 	foreign key (appID) references Game);
 
