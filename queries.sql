@@ -96,4 +96,4 @@ CREATE VIEW TagPopularity AS
 CREATE VIEW MostPopularTags AS
     select * from TagPopularity
     where num_tagged = (select max(num_tagged) from TagPopularity);
--- Result: Indue with 873 tagged
+-- Result: Indie with 873 tagged
